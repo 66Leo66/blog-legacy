@@ -4,13 +4,13 @@ pipeline:
   build:
     image: node:16
     commands:
-      - npm install
-      - npm run build
+      - npm install --registry=https://registry.npmmirror.com
+      - npm install --registry=https://registry.npmmirror.com --location=global vercel
+      - vercel --token=$VERCEL_TOKEN build --prod --yes
       
   deploy:
     image: node:16
     commands:
-      - npm install --location=global vercel
-      - vercel --token=$VERCEL_TOKEN build --prod --yes
+      - npm install --registry=https://registry.npmmirror.com --location=global vercel
       - vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes
     secrets: [ VERCEL_TOKEN ]
