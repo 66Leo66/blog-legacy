@@ -12,5 +12,5 @@ pipeline:
     commands:
       - npm install --location=global vercel
       - vercel --token=$VERCEL_TOKEN build --prod --yes
-      - vercel --token=$VERCEL_TOKEN deploy --yes
+      - vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes
     secrets: [ VERCEL_TOKEN ]
