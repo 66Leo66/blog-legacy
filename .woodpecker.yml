@@ -5,13 +5,13 @@ pipeline:
     image: node:16
     commands:
       - npm install
-      - npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-      - npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
-      - npx vercel --token=$VERCEL_TOKEN build --prod --yes
+      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
+      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN build --prod --yes
     secrets: [ VERCEL_TOKEN ]
       
   production-deploy:
     image: node:16
     commands:
-      - npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
+      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
     secrets: [ VERCEL_TOKEN ]
