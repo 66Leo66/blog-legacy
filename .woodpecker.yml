@@ -2,17 +2,15 @@
 
 pipeline:
   build:
-    image: node:16-slim
+    image: node:16
     commands:
-      - npm install --location=global cnpm --registry=https://registry.npmmirror.com
-      - cnpm install
-      - cnpm install js-yaml --save
-      - cnpm run build
+      - npm install
+      - npm install js-yaml --save
+      - npm run build
       
   deploy:
-    image: node:16-slim
+    image: node:16
     commands:
-      - npm install --location=global cnpm --registry=https://registry.npmmirror.com
-      - cnpm install --location=global vercel
+      - npm install --location=global vercel
       - vercel --token=$VERCEL_TOKEN
     secrets: [ VERCEL_TOKEN ]
