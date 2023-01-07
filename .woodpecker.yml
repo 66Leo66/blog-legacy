@@ -2,7 +2,7 @@
 
 pipeline:
   build:
-    image: node:lts-slim
+    image: node:16-slim
     commands:
       - npm install --location=global cnpm --registry=https://registry.npmmirror.com
       - cnpm install
@@ -10,7 +10,7 @@ pipeline:
       - cnpm run build
       
   deploy:
-    image: node:lts-slim
+    image: node:16-slim
     commands:
       - npm install --location=global cnpm --registry=https://registry.npmmirror.com
       - cnpm install --location=global vercel
