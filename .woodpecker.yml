@@ -6,7 +6,7 @@ pipeline:
     commands:
       - npm install
       - npm install --location=global vercel
-      - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+      - vercel --token=$VERCEL_TOKEN pull --yes --environment=production
       - vercel --token=$VERCEL_TOKEN build --prod --yes
       
   production-deploy:
