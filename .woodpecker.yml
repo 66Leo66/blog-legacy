@@ -6,6 +6,7 @@ pipeline:
     commands:
       - npm install --location=global cnpm --registry=https://registry.npmmirror.com
       - cnpm install
+      - cnpm install js-yaml --save
       - cnpm run build
       
   deploy:
