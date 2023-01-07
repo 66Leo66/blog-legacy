@@ -1,16 +1,17 @@
 # This file is used for woodpecker ci to build and deploy site.
 
 pipeline:
-  build:
+  production-build:
     image: node:16
     commands:
-      - npm install --registry=https://registry.npmmirror.com
-      - npm install --registry=https://registry.npmmirror.com --location=global vercel
+      - npm install
+      - npm install --location=global vercel
+      - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
       - vercel --token=$VERCEL_TOKEN build --prod --yes
       
-  deploy:
+  production-deploy:
     image: node:16
     commands:
-      - npm install --registry=https://registry.npmmirror.com --location=global vercel
-      - vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes
+      - npm install --location=global vercel
+      - vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
     secrets: [ VERCEL_TOKEN ]
