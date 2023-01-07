@@ -1,0 +1,17 @@
+# This file is used for woodpecker ci to build and deploy site.
+
+pipeline:
+  build:
+    image: node:lts-slim
+    commands:
+      - npm install --location=global cnpm --registry=https://registry.npmmirror.com
+      - cnpm install
+      - cnpm run build
+      
+  deploy:
+    image: node:lts-slim
+    commands:
+      - npm install --location=global cnpm --registry=https://registry.npmmirror.com
+      - cnpm install --location=global vercel
+      - vercel --token=$VERCEL_TOKEN
+    secrets: [ VERCEL_TOKEN ]
