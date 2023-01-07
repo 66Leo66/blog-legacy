@@ -5,7 +5,6 @@ pipeline:
     image: node:16
     commands:
       - npm install
-      - npm install js-yaml --save
       - npm run build
       
   deploy:
