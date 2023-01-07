@@ -5,13 +5,11 @@ pipeline:
     image: node:16
     commands:
       - npm install
-      - npm install --location=global vercel
-      - vercel --token=$VERCEL_TOKEN pull --yes --environment=production
-      - vercel --token=$VERCEL_TOKEN build --prod --yes
+      - npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
+      - npx vercel --token=$VERCEL_TOKEN build --prod --yes
       
   production-deploy:
     image: node:16
     commands:
-      - npm install --location=global vercel
-      - vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
+      - npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
     secrets: [ VERCEL_TOKEN ]
