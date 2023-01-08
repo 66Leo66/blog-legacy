@@ -7,6 +7,9 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 ### 博客主分支构建状态：
 [![status-badge](https://ci.6leo6.com/api/badges/66Leo66/blog/status.svg?branch=main)](https://ci.6leo6.com/66Leo66/blog/branches/main)
 
+### 博客主分支部署状态
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=blog-tawny-five-93)
+
 ## Quick Start
 
 ### Create a new post
