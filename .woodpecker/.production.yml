@@ -2,7 +2,7 @@
 
 pipeline:
   restore-cache:
-    imane: meltwater/drone-cache
+    image: meltwater/drone-cache
     volumes:
       - /root/woodpecker/cache:/tmp/cache
     settings:
@@ -20,7 +20,7 @@ pipeline:
       - npm install
       - npx --cache ./npx-cache vercel --version
   rebuild-cache:
-    imane: meltwater/drone-cache
+    image: meltwater/drone-cache
     volumes:
       - /root/woodpecker/cache:/tmp/cache
     settings:
