@@ -2,7 +2,13 @@
 type: docker
 name: production
 steps:
-  - name: Restore Cache
+  - name: submodules
+    image: alpine/git
+    commands:
+    - git submodule update --init --recursive
+
+
+  - name: restore-cache
     image: meltwater/drone-cache
     settings:
       backend: filesystem
@@ -22,14 +28,14 @@ steps:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/
       - npm install
       - npx --cache _npxcache vercel --version
-  - name: "Vercel: Link Project"
+  - name: link-vercel
     image: node:18
     environment:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-  - name: Rebuild Cache
+  - name: rebuild-cache
     image: meltwater/drone-cache
     settings:
       backend: filesystem
@@ -43,7 +49,7 @@ steps:
     volumes:
       - name: cache
         path: /tmp/cache
-  - name: "Build: Production"
+  - name: build-production
     image: node:18
     environment:
       VERCEL_TOKEN:
@@ -51,7 +57,7 @@ steps:
     commands:
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN build --prod --yes
-  - name: "Deploy: Production"
+  - name: deploy-production
     image: node:18
     environment:
       VERCEL_TOKEN:
