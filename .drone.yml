@@ -2,7 +2,7 @@
 type: docker
 name: production
 steps:
-  - name: "Cache: Restore"
+  - name: Restore Cache
     image: meltwater/drone-cache
     settings:
       backend: filesystem
@@ -28,9 +28,8 @@ steps:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
-      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN link --yes
-        --project=my-blog
-  - name: "Cache: Rebuild"
+      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+  - name: Rebuild Cache
     image: meltwater/drone-cache
     settings:
       backend: filesystem
@@ -50,8 +49,7 @@ steps:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
-      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN pull --yes
-        --environment=production
+      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN build --prod --yes
   - name: "Deploy: Production"
     image: node:18
@@ -59,8 +57,7 @@ steps:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
-      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN deploy --prebuilt
-        --yes --prod
+      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
 trigger:
   branch:
     - main
