@@ -4,6 +4,7 @@ pipeline:
   prepare:
     image: node:18
     commands:
+      - npm config set registry https://repo.nju.edu.cn/repository/npm/ # 修改源
       - npm install
       - npx --cache ./npx-cache vercel --version
   production-build:
