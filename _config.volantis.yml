@@ -78,9 +78,9 @@ comments:
     placeholder: 发一条友善的评论~
     pageview: true # 浏览量统计
     comment: true  # 评论数统计
-    imageUploader:
-      api: https://www.imgtp.com/api/upload
-      token: 
-      resp: data.url
+    # imageUploader:
+    #   api: https://www.imgtp.com/api/upload
+    #   token: 
+    #   resp: data.url
     avatar: robohash
     avatarCDN: https://sdn.geekzu.org/avatar/
