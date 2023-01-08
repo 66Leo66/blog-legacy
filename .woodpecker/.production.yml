@@ -1,17 +1,20 @@
 # This file is used for woodpecker ci to build and deploy site.
 
 pipeline:
-  production-build:
-    image: node:16
+  prepare:
+    image: node:18
     commands:
       - npm install
+      - npx --cache ./npx-cache vercel --version
+  production-build:
+    image: node:18
+    commands:
       - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
       - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
       - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN build --prod --yes
     secrets: [ VERCEL_TOKEN ]
-      
   production-deploy:
-    image: node:16
+    image: node:18
     commands:
       - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
     secrets: [ VERCEL_TOKEN ]
