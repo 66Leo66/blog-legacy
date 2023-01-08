@@ -104,8 +104,8 @@ custom_css:
       weight: normal
       style: normal
     codefont:
-      fontfamily: 'Menlo, UbuntuMono, Monaco'
-      # name: 'Monaco'
-      # url: volantis-static/media/fonts/Monaco/Monaco.ttf # https://gcore.jsdelivr.net/gh/volantis-x/cdn-fonts/Monaco/Monaco.ttf
-      # weight: normal
-      # style: normal
+      fontfamily: '"JetBrains Mono", Menlo, UbuntuMono, Monaco'
+      name: 'JetBrains Mono'
+      url: https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2
+      weight: normal
+      style: normal
