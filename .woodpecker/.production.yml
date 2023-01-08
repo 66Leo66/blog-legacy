@@ -2,10 +2,13 @@
 
 pipeline:
   restore-cache:
-    imane: drillster/drone-volume-cache
+    imane: meltwater/drone-cache
     volumes:
-      - /root/woodpecker/cache:/cache
+      - /root/woodpecker/cache:/tmp/cache
     settings:
+      backend: "filesystem"
+      cache_key: "volume"
+      archive_format: "gzip"
       restore: true
       mount:
         - ./node_modules
@@ -17,10 +20,13 @@ pipeline:
       - npm install
       - npx --cache ./npx-cache vercel --version
   rebuild-cache:
-    imane: drillster/drone-volume-cache
+    imane: meltwater/drone-cache
     volumes:
-      - /root/woodpecker/cache:/cache
+      - /root/woodpecker/cache:/tmp/cache
     settings:
+      backend: "filesystem"
+      cache_key: "volume"
+      archive_format: "gzip"
       rebuild: true
       mount:
         - ./node_modules
