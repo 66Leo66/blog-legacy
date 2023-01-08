@@ -59,7 +59,7 @@ cdn_system:
 
 
 plugins:
-   # 代码高亮
+  # 代码高亮
   code_highlight: highlightjs # highlightjs or prismjs
   # highlight.js
   highlightjs:
@@ -98,9 +98,9 @@ custom_css:
       weight: normal
       style: normal
     bodyfont:
-      fontfamily: 'UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
-      name: 'UbuntuMono'
-      url: volantis-static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf # https://gcore.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf
+      fontfamily: 'Noto Sans, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      name: 'Noto Sans'
+      url: https://mirrors.tuna.tsinghua.edu.cn/ctan/fonts/noto/truetype/NotoSans-Regular.ttf
       weight: normal
       style: normal
     codefont:
