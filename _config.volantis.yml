@@ -69,3 +69,18 @@ plugins:
     js: https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js # Please set hexo.config.highlight.enable = false !!!
     css: https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark-reasonable.min.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
+    
+comment:
+  service: waline
+  waline:
+    path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是waline的问题
+    serverURL: https://waline.6leo6.com
+    placeholder: 发一条友善的评论~
+    pageview: true # 浏览量统计
+    comment: true  # 评论数统计
+    imageUploader:
+      api: https://www.imgtp.com/api/upload
+      token: 
+      resp: data.url
+    avatar: robohash
+    avatarCDN: https://sdn.geekzu.org/avatar/
