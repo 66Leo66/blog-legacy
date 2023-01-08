@@ -70,7 +70,7 @@ plugins:
     css: https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark-reasonable.min.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
     
-comment:
+comments:
   service: waline
   waline:
     path: # 全局评论地址 目前设置全局评论地址后visitor失效,这是waline的问题
