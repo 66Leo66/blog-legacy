@@ -12,13 +12,14 @@ pipeline:
       restore: true
       mount:
         - ./node_modules
-        - ./npx-cache
+        - ~/.npm/_npx
+        - ./.vercel
   prepare:
     image: node:18
     commands:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/ # 修改源
       - npm install
-      - npx --cache ./npx-cache vercel --version
+      - npx vercel --version
   rebuild-cache:
     image: meltwater/drone-cache
     volumes:
@@ -30,16 +31,17 @@ pipeline:
       rebuild: true
       mount:
         - ./node_modules
-        - ./npx-cache
+        - ~/.npm/_npx
+        - ./.vercel
   production-build:
     image: node:18
     commands:
-      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
-      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN build --prod --yes
+      - npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+      - npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
+      - npx vercel --token=$VERCEL_TOKEN build --prod --yes
     secrets: [ VERCEL_TOKEN ]
   production-deploy:
     image: node:18
     commands:
-      - npx --cache ./npx-cache vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
+      - npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
     secrets: [ VERCEL_TOKEN ]
