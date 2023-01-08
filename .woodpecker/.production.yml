@@ -1,12 +1,30 @@
 # This file is used for woodpecker ci to build and deploy site.
 
 pipeline:
+  restore-cache:
+    imane: drillster/drone-volume-cache
+    volumes:
+      - /root/woodpecker/cache:/cache
+    settings:
+      restore: true
+      mount:
+        - ./node_modules
+        - ./npx-cache
   prepare:
     image: node:18
     commands:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/ # 修改源
       - npm install
       - npx --cache ./npx-cache vercel --version
+  rebuild-cache:
+    imane: drillster/drone-volume-cache
+    volumes:
+      - /root/woodpecker/cache:/cache
+    settings:
+      rebuild: true
+      mount:
+        - ./node_modules
+        - ./npx-cache
   production-build:
     image: node:18
     commands:
