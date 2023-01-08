@@ -34,7 +34,8 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-npm" 开头的链接路径替换为该格式的前缀开头 prefix
     npm:
       # CDN 链接前缀
-      prefix: https://unpkg.com
+      # prefix: https://unpkg.com
+      prefix: https://jsd.cdn.zzko.cn/npm
       # npm CDN 格式
       format: ${prefix}/${name}@${version}/${file}
     # volantis static 静态资源文件 npm 包 CDN 地址
@@ -42,7 +43,8 @@ cdn_system:
     # Tip: 在本配置文件中 匹配以 "volantis-static" 开头的链接路径替换为该格式的前缀开头 prefix
     static:
       # CDN 链接前缀
-      prefix: https://unpkg.com/volantis-static@0.0.1660614606622
+      # prefix: https://unpkg.com/volantis-static@0.0.1660614606622
+      prefix: https://jsd.cdn.zzko.cn/npm/volantis-static@0.0.1660614606622
       # volantis-static CDN 格式
       format: ${prefix}/libs/${name}/${file}
     # cdnjs
