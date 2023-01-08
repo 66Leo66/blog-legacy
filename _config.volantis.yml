@@ -85,6 +85,10 @@ comments:
     avatar: robohash
     avatarCDN: https://sdn.geekzu.org/avatar/
     
+search:
+  enable: true
+  service: hexo
+
 custom_css:
   fontfamily:
     logofont:
