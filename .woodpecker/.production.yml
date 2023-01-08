@@ -20,6 +20,11 @@ pipeline:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/ # 修改源
       - npm install
       - npx --cache _npxcache vercel --version
+  vercel-link-project:
+    image: node:18
+    commands:
+      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+    secrets: [ VERCEL_TOKEN ]
   rebuild-cache:
     image: meltwater/drone-cache
     volumes:
@@ -36,7 +41,6 @@ pipeline:
   production-build:
     image: node:18
     commands:
-      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN build --prod --yes
     secrets: [ VERCEL_TOKEN ]
