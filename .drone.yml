@@ -24,13 +24,13 @@ steps:
       - name: cache
         path: /tmp/cache
   - name: install-dependencies
-    image: node:18
+    image: node:19
     commands:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/
       - npm install
       - npx --cache _npxcache vercel --version
   - name: link-vercel
-    image: node:18
+    image: node:19
     environment:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
@@ -51,7 +51,7 @@ steps:
       - name: cache
         path: /tmp/cache
   - name: build-production
-    image: node:18
+    image: node:19
     environment:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
@@ -59,7 +59,7 @@ steps:
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN build --prod --yes
   - name: deploy-production
-    image: node:18
+    image: node:19
     environment:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
