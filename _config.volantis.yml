@@ -94,18 +94,10 @@ custom_css:
   fontfamily:
     logofont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
-      name: 'Varela Round'
-      url: volantis-static/media/fonts/VarelaRound/VarelaRound-Regular.ttf # https://gcore.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf
-      weight: normal
-      style: normal
     bodyfont:
       fontfamily: '"Noto Sans SC", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
     codefont:
-      fontfamily: '"JetBrains Mono", Menlo, UbuntuMono, Monaco'
-      name: 'JetBrains Mono'
-      url: https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2
-      weight: normal
-      style: normal
+      fontfamily: '"Source Code Pro", Menlo, UbuntuMono, Monaco'
       
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
@@ -113,3 +105,4 @@ dns_prefetch:
   - https://cdnjs.loli.net
   - https://waline.6leo6.com
   - https://unpkg.com
+  - https://fonts.loli.net
