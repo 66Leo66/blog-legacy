@@ -67,7 +67,10 @@ steps:
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
 trigger:
   branch:
-    - main
+    include:
+      - main
+    exclude:
+      - renovate/*
   event:
     include:
     - push
