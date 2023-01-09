@@ -87,17 +87,17 @@ type: docker
 name: renovate
 
 steps:
-- name: renovate-bot
-  image: renovate/renovate:latest
-  environments:
-    RENOVATE_TOKEN:
-      from_secret: renovate_bot_pat
-    RENOVATE_AUTODISCOVER: 'true'
-    RENOVATE_ENDPOINT: 'https://git.6leo6.com'
-    RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
-    RENOVATE_PLATFORM: "gitea"
-  commands:
-    - renovate
+  - name: renovate-bot
+    image: renovate/renovate:latest
+    environments:
+      RENOVATE_TOKEN:
+        from_secret: renovate_bot_pat
+      RENOVATE_AUTODISCOVER: 'true'
+      RENOVATE_ENDPOINT: 'https://git.6leo6.com'
+      RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
+      RENOVATE_PLATFORM: "gitea"
+    commands:
+      - renovate
 
 trigger:
   event:
@@ -106,6 +106,3 @@ trigger:
       - custom
       - push
       - pull_request
-  cron:
-    include:
-    - renovate
