@@ -81,8 +81,8 @@ volumes:
     host:
       path: /root/drone/cache
 ---
-type: pipeline
-kind: docker
+kind: pipeline
+type: docker
 name: renovate
 
 steps:
