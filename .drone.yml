@@ -89,7 +89,7 @@ name: renovate
 steps:
   - name: renovate-bot
     image: renovate/renovate:latest
-    environments:
+    environment:
       RENOVATE_TOKEN:
         from_secret: renovate_bot_pat
       RENOVATE_AUTODISCOVER: 'true'
