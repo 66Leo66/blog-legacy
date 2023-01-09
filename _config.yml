@@ -107,7 +107,7 @@ mathjax:
 
 pandoc:
   extensions:
-    - _github
+    - "+hard_line_breaks"
 
 feed:
   enable: true
