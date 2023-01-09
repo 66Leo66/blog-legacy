@@ -6,12 +6,7 @@ name: production
 clone:
   depth: 0
 
-steps:
-  - name: submodules
-    image: alpine/git
-    commands:
-    - git submodule update --init --recursive
-    
+steps:    
   - name: fix-update-time
     image: alpine/git
     commands:
@@ -29,9 +24,14 @@ steps:
         - ./_npxcache
         - ./.vercel
         - ./pandoc
+        - ./themes/volantis
     volumes:
       - name: cache
         path: /tmp/cache
+  - name: submodules
+    image: alpine/git
+    commands:
+    - git submodule update --init --recursive
   - name: install-dependencies
     image: node:19
     commands:
@@ -60,6 +60,7 @@ steps:
         - ./_npxcache
         - ./.vercel
         - ./pandoc
+        - ./themes/volantis
     volumes:
       - name: cache
         path: /tmp/cache
