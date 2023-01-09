@@ -2,12 +2,16 @@
 kind: pipeline
 type: docker
 name: production
+
+clone:
+  depth: 0
+
 steps:
   - name: submodules
     image: alpine/git
     commands:
     - git submodule update --init --recursive
-
+    - git ls-files -z | while read -d '' path; do touch -d "$(git log -1 --format="@%ct" "$path")" "$path"; done
 
   - name: restore-cache
     image: meltwater/drone-cache
