@@ -1,6 +1,13 @@
 # Configuration:
 # https://volantis.js.org/v6/theme-settings/
 
+pages:
+  # 友链页面配置
+  friends:
+    layout_scheme: traditional # simple: 简单布局, traditional: 传统布局
+
+
+
 cdn_system:
   # CDN 优先级 从高到低排序 写入 priority 列表即表示启用(enable)
   priority: [custom, local, cdnjs, npm, static]
