@@ -119,6 +119,11 @@ comments:
       resp: data.url
     avatar: robohash
     avatarCDN: https://sdn.geekzu.org/avatar/
+    emoji:
+      - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/qq
+      - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/tw-emoji
+      - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/bilibili
+      - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/bmoji
     
 search:
   enable: true
