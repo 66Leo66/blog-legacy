@@ -90,11 +90,9 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: volantis
 
-import:
-  head_begin:
-    - <link href='https://fonts.loli.net/css?family=Noto+Sans+SC' rel='stylesheet'>
-    - <link href='https://fonts.loli.net/css?family=Varela+Round' rel='stylesheet'>
-    - <link href='https://fonts.loli.net/css?family=Source+Code+Pro' rel='stylesheet'>
+# import:
+#     head_begin:
+    
 
 feed:
   enable: true
