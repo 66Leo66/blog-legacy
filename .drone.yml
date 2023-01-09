@@ -68,7 +68,11 @@ trigger:
   branch:
     - main
   event:
-  - cron
+    include:
+    - push
+    - pull_request
+    exclude:
+    - cron
   cron:
     exclude:
     - renovate
@@ -76,3 +80,26 @@ volumes:
   - name: cache
     host:
       path: /root/drone/cache
+---
+type: pipeline
+kind: docker
+name: renovate
+
+steps:
+- name: renovate-bot
+  image: renovate/renovate:latest
+  environments:
+    RENOVATE_TOKEN:
+      from_secret: renovate_bot_pat
+    RENOVATE_AUTODISCOVER: 'true'
+    RENOVATE_ENDPOINT: 'https://git.6leo6.com'
+    RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
+    RENOVATE_PLATFORM: "gitea"
+
+trigger:
+  event:
+  - cron
+  - custom
+  cron:
+    include:
+    - renovate
