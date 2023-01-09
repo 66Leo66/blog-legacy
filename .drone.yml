@@ -28,7 +28,7 @@ steps:
         - ./node_modules
         - ./_npxcache
         - ./.vercel
-        - ./pandoc.deb
+        - ./pandoc
     volumes:
       - name: cache
         path: /tmp/cache
@@ -38,8 +38,9 @@ steps:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/
       - npm install
       - npx --cache _npxcache vercel --version
-      - wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
-      - dpkg -i pandoc.deb
+      - mkdir pandoc
+      - wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc/pandoc.deb
+      - dpkg -i pandoc/pandoc.deb
   - name: link-vercel
     image: node:19
     environment:
@@ -59,7 +60,7 @@ steps:
         - ./node_modules
         - ./_npxcache
         - ./.vercel
-        - ./pandoc.deb
+        - ./pandoc
     volumes:
       - name: cache
         path: /tmp/cache
