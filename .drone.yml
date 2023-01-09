@@ -22,7 +22,7 @@ steps:
     volumes:
       - name: cache
         path: /tmp/cache
-  - name: Prepare Dependencies
+  - name: install-dependencies
     image: node:18
     commands:
       - npm config set registry https://repo.nju.edu.cn/repository/npm/
