@@ -98,6 +98,8 @@ custom_css:
       fontfamily: '"Noto Sans SC", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
     codefont:
       fontfamily: '"Source Code Pro", Menlo, UbuntuMono, Monaco'
+  fontsize:
+    code: .875rem
       
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
