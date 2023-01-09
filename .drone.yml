@@ -82,6 +82,7 @@ trigger:
       - renovate/*
   event:
     include:
+    - custom
     - push
     - pull_request
     exclude:
