@@ -95,13 +95,16 @@ steps:
     RENOVATE_ENDPOINT: 'https://git.6leo6.com'
     RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
     RENOVATE_PLATFORM: "gitea"
+  commands:
+    - renovate
 
 trigger:
   event:
-  - cron
-  - custom
-  - push
-  - pull_request
+    include:
+      - cron
+      - custom
+      - push
+      - pull_request
   cron:
     include:
     - renovate
