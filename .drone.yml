@@ -39,7 +39,7 @@ steps:
       - npm install
       - npx --cache _npxcache vercel --version
       - mkdir pandoc
-      - wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc/pandoc.deb
+      - wget https://ghproxy.com/github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc/pandoc.deb
       - dpkg -i pandoc/pandoc.deb
   - name: link-vercel
     image: node:19
