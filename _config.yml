@@ -108,6 +108,7 @@ mathjax:
 pandoc:
   extensions:
     - "+hard_line_breaks"
+    - "+emoji"
 
 feed:
   enable: true
