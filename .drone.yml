@@ -39,7 +39,7 @@ steps:
       - npm install
       - npx --cache _npxcache vercel --version
       - mkdir -p pandoc; touch pandoc/pandoc.deb
-      - if [[ $(sha256sum pandoc/pandoc.deb) = "e5276b8ec6f2f25d85caa7f529a09117dcd346e04a8a5dcca755c58043b4a6f9  pandoc/pandoc.deb" ]]; then echo "Signature OK"; else rm pandoc/pandoc.deb; wget https://ghproxy.com/github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc/pandoc.deb; fi
+      - bash -c "if [[ $(sha256sum pandoc/pandoc.deb) = 'e5276b8ec6f2f25d85caa7f529a09117dcd346e04a8a5dcca755c58043b4a6f9  pandoc/pandoc.deb' ]]; then echo 'Signature OK'; else rm pandoc/pandoc.deb; wget https://ghproxy.com/github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc/pandoc.deb; fi"
   - name: link-vercel
     image: node:19
     environment:
