@@ -6,7 +6,34 @@ pages:
   friends:
     layout_scheme: traditional # simple: 简单布局, traditional: 传统布局
 
-
+############################### Cover ############################### > start
+cover:
+  height_scheme: half # full, half
+  layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
+  display:
+    home: true
+    archive: true
+    others: false # can be written in front-matter 'cover: true'
+  background: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+  # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
+  logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
+  title: 'Volantis'
+  subtitle: ''
+  search: A Wonderful Theme for Hexo # search bar placeholder
+  features:
+    - name: 文章
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f4da.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg
+      url: /archives/
+    - name: 源码
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f517.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
+      url: https://git.6leo6.com/66Leo66/blog
+    - name: 关于
+      icon: #
+      img: volantis-static/media/twemoji/assets/svg/1f34a.svg
+      url: /about/
+############################### Cover ############################### > end
 
 cdn_system:
   # CDN 优先级 从高到低排序 写入 priority 列表即表示启用(enable)
