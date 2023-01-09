@@ -44,7 +44,7 @@ steps:
         from_secret: vercel_access_token
     commands:
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-      - echo 🎉 Successful! (hopefully)
+      - echo "🎉 Successful! (hopefully)"
   - name: rebuild-cache
     image: meltwater/drone-cache
     settings:
