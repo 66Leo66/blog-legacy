@@ -67,6 +67,11 @@ steps:
 trigger:
   branch:
     - main
+  event:
+  - cron
+  cron:
+    exclude:
+    - renovate
 volumes:
   - name: cache
     host:
