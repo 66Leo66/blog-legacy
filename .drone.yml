@@ -60,7 +60,7 @@ steps:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
-      - npm build
+      - npm run build
   - name: deploy-production
     image: node:19
     environment:
