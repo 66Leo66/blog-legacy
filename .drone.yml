@@ -60,15 +60,17 @@ steps:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
-      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN pull --yes --environment=production
-      - npx --cache _npxcache vercel --token=$VERCEL_TOKEN build --prod --yes
+      - hexo generate
   - name: deploy-production
     image: node:19
     environment:
       VERCEL_TOKEN:
         from_secret: vercel_access_token
     commands:
+      - mv public .vercel/output
       - npx --cache _npxcache vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
+      
+      
 trigger:
   branch:
     include:
