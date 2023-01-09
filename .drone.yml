@@ -100,6 +100,8 @@ trigger:
   event:
   - cron
   - custom
+  - push
+  - pull_request
   cron:
     include:
     - renovate
