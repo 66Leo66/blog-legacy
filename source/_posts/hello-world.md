@@ -6,11 +6,11 @@ mathjax: true
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ### Math Test
-$$t+1=2$$
+行内 $t+1=2$ 公式
 
 $$
 \mbox{积累因子}=\begin{cases}
-1+ni & \mbox{单利}\\\\
+1+ni & \mbox{单利} \\
 (1+i)^n & \mbox{复利}
 \end{cases}
 $$
