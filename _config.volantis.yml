@@ -99,11 +99,7 @@ custom_css:
       weight: normal
       style: normal
     bodyfont:
-      fontfamily: 'Noto Sans, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
-      name: 'Noto Sans'
-      url: https://mirrors.tuna.tsinghua.edu.cn/ctan/fonts/noto/truetype/NotoSans-Regular.ttf
-      weight: normal
-      style: normal
+      fontfamily: '"Noto Sans SC", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
     codefont:
       fontfamily: '"JetBrains Mono", Menlo, UbuntuMono, Monaco'
       name: 'JetBrains Mono'
