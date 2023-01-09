@@ -106,8 +106,8 @@ mathjax:
     # see http://docs.mathjax.org/en/latest/options/input/tex.html#tex-extension-options for more detail
 
 pandoc:
-  extra:
-    - "wrap=preserve":
+  extensions:
+    - _github
 
 feed:
   enable: true
