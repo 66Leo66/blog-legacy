@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Leo's Blog
-subtitle: 'Yet another bug maker.'
-description: 'Leo的个人博客。'
+title: "Leo's Blog"
+subtitle: "Yet another bug maker."
+description: "Leo的个人博客。"
 keywords:
 author: Leo Li (66Leo66)
 language:
