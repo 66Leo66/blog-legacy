@@ -1,0 +1,43 @@
+name: Deploy Blog
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Fix File Modify Time
+        run: git ls-files -z | while read -d '' path; do touch -d "$(git log -1 --format="@%ct" "$path")" "$path"; done
+      - name: Install Node Dependencies
+        run: npm install
+      - name: Install Pandoc
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
+          dpkg -i pandoc.deb
+      - name: Prepare Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
+      - name: Build
+        run: npx vercel --token=$VERCEL_TOKEN build --prod --yes
+      - name: Deploy to Vercel
+        run: npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod
+  
