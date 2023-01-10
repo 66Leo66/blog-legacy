@@ -1,12 +1,13 @@
 <script>
 	volantis.dark.push(() => {
-		volantis.import.jQuery().then(()=>{
-			// 依赖 jQuery 的代码段
-			if(volantis.dark.mode=="dark"){
-				$(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式"
-			}else{
-				$(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";		
-			}
-		})
+		if(volantis.dark.mode=="dark"){
+			// $(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
+			document.getElementsByClassName("toggle-mode-btn")[0].innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
+			document.getElementsByClassName("toggle-mode-btn")[1].innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
+		}else{
+			// $(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
+			document.getElementsByClassName("toggle-mode-btn")[0].innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
+			document.getElementsByClassName("toggle-mode-btn")[1].innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
+		}
 	});
 </script>
