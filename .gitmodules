@@ -1,0 +1,3 @@
+[submodule "themes/volantis"]
+	path = themes/volantis
+	url = git@github.com:66Leo66/hexo-theme-volantis.git
