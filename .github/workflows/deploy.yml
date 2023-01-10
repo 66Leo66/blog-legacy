@@ -53,5 +53,5 @@ jobs:
         id: output
         run: | 
           echo -n "url=" >> $GITHUB_OUTPUT
-          cat deployment-url.txt >> GITHUB_OUTPUT
+          cat deployment-url.txt >> $GITHUB_OUTPUT
   
