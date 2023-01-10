@@ -456,6 +456,7 @@ comments:
       - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/bilibili
       - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/bmoji
     dark: 'html[color-scheme="dark"]'
+    recaptchaV3Key: 6LfWiMwZAAAAACB8XfAuF9W0ZhqkgoNF68JTHLSH
     
 search:
   enable: true
