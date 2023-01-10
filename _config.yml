@@ -109,6 +109,7 @@ pandoc:
   extensions:
     - "+hard_line_breaks"
     - "+emoji"
+    - "wrap=none":
 
 feed:
   enable: true
