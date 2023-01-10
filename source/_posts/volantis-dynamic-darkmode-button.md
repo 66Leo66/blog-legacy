@@ -48,7 +48,8 @@ navbar:
 因此，我们只要魔改这个脚本就可以实现目标效果。
 ……吗？
 
-似乎不行。~~至少我不会~~ **渲染时**我们无从得知客户端的颜色模式~~而且，again，我不会改~~。
+似乎不行。~~至少我不会~~
+**渲染时**我们无从得知客户端的颜色模式~~而且，again，我不会改~~。
 
 ### 思路二
 既然我们无法在渲染时动手脚，那就只能求助于~~万能的~~ Javascript 了。
@@ -66,8 +67,7 @@ const updateDarkmodeButtonLabel = () => {
   }
 }
 ```
-{% folding::进一步解释 %}
-CSS 选择器 `.toggle-mode-btn` 会匹配到两个元素的原因是因为电脑和移动端不共用同一个导航栏。
+{% folding::进一步解释 %}CSS 选择器 `.toggle-mode-btn` 会匹配到两个元素的原因是因为电脑和移动端不共用同一个导航栏。
 在此我们需要同时修改这两个元素。
 {% endfolding %}
 
@@ -80,14 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 }, { once: true });
 ```
-{% folding::进一步解释 %}
-为了尽可能早的进行初次更新，我们监听事件 `docuemnt.DOMContentLoaded` 而不是 `load` 或 `ready`；
+{% folding::进一步解释 %}为了尽可能早的进行初次更新，我们监听事件 `docuemnt.DOMContentLoaded` 而不是 `load` 或 `ready`；
 这也是为什么我们要先调用这个方法一次，再注册回调。
 {% endfolding %}
 
 最后，我们要通过适当的方式将这段代码注入到页面中。我选用的方法是利用 `theme_inject`工具。
-{% folding::把文件给我 %}
-```javascript scripts/inject.js
+{% folding::把文件给我 %}```javascript scripts/inject.js
 // 此文件需要放在 blog/scripts 或 volantis/scripts 目录
 // 此文件可以任意命名
 hexo.extend.filter.register('theme_inject', function (injects) {
