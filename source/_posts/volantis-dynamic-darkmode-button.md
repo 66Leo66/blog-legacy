@@ -9,11 +9,6 @@ tags:
   - Javascript
 ---
 
-
-<!-- more -->
-<a class="menuitem flat-box header toggle-mode-btn">
-  <i class="fas fa-moon fa-fw"></i>深色模式
-</a>
 ## 关于暗黑模式
 在主题 Volantis 中，暗黑模式通过以下方式来启动：
 
