@@ -52,6 +52,6 @@ jobs:
       - name: Output Deployment URL
         id: output
         run: | 
-          echo -n "::set-output name=url::"  
-          cat deployment-url.txt
+          echo -n "url=" >> $GITHUB_OUTPUT
+          cat deployment-url.txt >> GITHUB_OUTPUT
   
