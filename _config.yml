@@ -110,7 +110,7 @@ pandoc:
     - "+hard_line_breaks"
     - "+emoji"
   extra:
-    - "wrap=preserve":
+    - "wrap=none":
 
 feed:
   enable: true
