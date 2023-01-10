@@ -1,0 +1,11 @@
+<script>
+	volantis.dark.push(() => {
+	<% if (theme.plugins.darkmode.enable) { %>
+		if(volantis.dark.mode=="dark"){
+			$(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式"
+		}else{
+			$(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";		
+		}
+	<% } %>
+	});
+</script>
