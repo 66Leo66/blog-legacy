@@ -9,8 +9,10 @@ tags:
   - Javascript
 ---
 
+在这篇文章中，我将介绍如何让切换深色/浅色模式的按钮的提示文字随颜色模式而变化。
 
 <!-- more -->
+
 ## 关于暗黑模式
 在主题 Volantis 中，暗黑模式通过以下方式来启动：
 
@@ -29,7 +31,7 @@ navbar:
       toggle: darkmode
 ```
 
-这样，你就能得到一个 {% inlineimage button-appearance.png::height=40px %} ：
+这样，你就能得到一个这样的按钮：
 ```html
 <li>
   <a class="menuitem flat-box header toggle-mode-btn">
@@ -40,17 +42,17 @@ navbar:
 这个按钮可真是太酷了，可惜**它不会变**——无论在深色模式还是浅色模式，按钮的内容都是{% btn 深色模式::::fas fa-moon %}。
 
 我不太喜欢这样，于是：
-
 ## 魔改这个按钮
 ### 思路一
-{% note warning::note warning 这个思路行不通(或似乎行不通) %}
+{% note warning::这个思路行不通(或似乎行不通) %}
 
 导航栏渲染的脚本位于 `layout\_partial\header.ejs`。
 
 因此，我们只要魔改这个脚本就可以实现目标效果。
 ……吗？
 
-似乎不行。~~至少我不会~~ **渲染时**我们无从得知客户端的颜色模式~~而且，again，我不会改~~。
+似乎不行。~~至少我不会~~
+**渲染时**我们无从得知客户端的颜色模式~~而且，again，我不会改~~。
 
 ### 思路二
 既然我们无法在渲染时动手脚，那就只能求助于~~万能的~~ Javascript 了。
