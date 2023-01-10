@@ -64,8 +64,8 @@ navbar:
     - name: 关于
       icon: fa-solid fa-info-circle
       url: about/
-    - name: 深色模式
-      icon: fas fa-moon
+    - name: ''
+      icon: ''
       toggle: darkmode
   search: 搜索...   # Search bar placeholder
 ############################### Navigation Bar ############################### > end
@@ -391,7 +391,7 @@ sidebar:
           unit: '篇'
         runtime:
           enable: false
-          data: '2020/01/01'    # 填写建站日期
+          data: '2023/01/07'    # 填写建站日期
           text: '已运行时间：'
           unit: '天'
         wordcount:
