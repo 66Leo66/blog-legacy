@@ -109,6 +109,8 @@ pandoc:
   extensions:
     - "+hard_line_breaks"
     - "+emoji"
+  extra:
+    - "wrap=preserve":
 
 feed:
   enable: true
