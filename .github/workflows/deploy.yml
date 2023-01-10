@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  prepare:
+  hexo-build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
       - name: Install Pandoc
         run: |
           wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
-          dpkg -i pandoc.deb
+          sudo dpkg -i pandoc.deb
       - name: Prepare Vercel
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
