@@ -13,16 +13,16 @@ jobs:
       output1: ${{ steps.output.outputs.url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
           submodules: 'true'
       - name: Use Node.js 18.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "18"
       - name: Cache NPM dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.OS }}-npm-cache
@@ -50,4 +50,4 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
-  
+        if: github.event_name == 'push' && github.ref_name == 'main'
