@@ -12,7 +12,7 @@ tags:
 ## 关于暗黑模式
 在主题 Volantis 中，暗黑模式通过以下方式来启动：
 
-```yaml
+```yaml _config.volantis.yaml
 # 启用 darkmode 插件
 plugins:
   darkmode:
@@ -22,20 +22,20 @@ plugins:
 navbar:
   menu:
     ...
-    - name: 暗黑模式 # 可自定义
+    - name: 深色模式 # 可自定义
       icon: fas fa-moon # 可自定义
       toggle: darkmode
 ```
 
-这样，你就能得到一个 {% inlineimage button-appearance.png%} ：
+这样，你就能得到一个 {% inlineimage button-appearance.png::height=40px %} ：
 ```html
 <li>
   <a class="menuitem flat-box header toggle-mode-btn">
-    <i class="fas fa-moon fa-fw"></i>暗黑模式
+    <i class="fas fa-moon fa-fw"></i>深色模式
   </a>
 </li>
 ```
-这个按钮可真是太酷了，可惜**它不会变**——无论在深色模式还是浅色模式，按钮的内容都是{% btn 暗黑模式::#::fa-moon %}。
+这个按钮可真是太酷了，可惜**它不会变**——无论在深色模式还是浅色模式，按钮的内容都是{% btn 深色模式::'#'::fas fa-moon %}。
 
 我不太喜欢这样，于是以下内容便诞生了。
 
