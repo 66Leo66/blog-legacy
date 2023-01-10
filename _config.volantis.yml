@@ -467,7 +467,7 @@ custom_css:
     logofont:
       fontfamily: '"Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
     bodyfont:
-      fontfamily: '"Noto Sans SC", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
+      fontfamily: '"MiSans", "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial'
     codefont:
       fontfamily: '"Source Code Pro", Menlo, UbuntuMono, Monaco'
   fontsize:
