@@ -435,6 +435,8 @@ plugins:
     # Please set hexo.config.highlight.enable = false !!!
     css: https://jsd.cdn.zzko.cn/npm/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark-reasonable.min.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
+  darkmode:
+    enable: true
     
 comments:
   service: waline
