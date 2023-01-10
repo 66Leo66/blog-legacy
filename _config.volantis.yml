@@ -455,7 +455,7 @@ comments:
       - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/tw-emoji
       - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/bilibili
       - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/bmoji
-    dark: 'auto'
+    dark: 'html[color-scheme="dark"]'
     
 search:
   enable: true
