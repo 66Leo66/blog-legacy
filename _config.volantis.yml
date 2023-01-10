@@ -64,7 +64,7 @@ navbar:
     - name: 关于
       icon: fa-solid fa-info-circle
       url: about/
-    - name: 暗黑模式
+    - name: 深色模式
       icon: fas fa-moon
       toggle: darkmode
   search: 搜索...   # Search bar placeholder
