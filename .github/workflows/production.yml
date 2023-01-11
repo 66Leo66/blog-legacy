@@ -29,7 +29,7 @@ jobs:
           timezoneLinux: "Asia/Shanghai"
       
       - name: Generate
-        uses: 66Leo66/build-my-blog@v2
+        uses: 66Leo66/build-my-blog@v3
 
       - name: Deploy
         id: deploy
