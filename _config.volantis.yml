@@ -14,7 +14,7 @@ cover:
     home: true
     archive: true
     others: false # can be written in front-matter 'cover: true'
-  background: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+  background: https://api.7ed.net/bing/api
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: 'Volantis'
@@ -120,7 +120,7 @@ article:
         title: 推荐阅读
         icon: fa-solid fa-bookmark
         max_count: 6
-        placeholder_img: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+        placeholder_img: https://api.7ed.net/bing/api
         # 不展示文章推荐
         # front-matter 使用 skip_recommended_article: true 关闭
         # 不在以下文件夹文章中展示文章推荐 根目录是source/
@@ -135,7 +135,7 @@ article:
         icon: fa-solid fa-bookmark
         max_count: 5
         # 设为空则不使用文章头图
-        placeholder_img: https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg
+        placeholder_img: https://api.7ed.net/bing/api
       # ----------------
       # 版权声明组件 (for layout: post)
       copyright:
