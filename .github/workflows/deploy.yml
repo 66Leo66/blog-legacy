@@ -9,8 +9,6 @@ on:
   
 jobs:
   hexo-build-deploy:
-    outputs:
-      output1: ${{ steps.output.outputs.url }}
     runs-on: ubuntu-latest
     permissions:
       deployments: write
@@ -19,41 +17,7 @@ jobs:
         with:
           fetch-depth: '0'
           submodules: 'true'
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-      - name: Cache NPM dependencies
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache
-      - name: Fix File Modify Time
-        run: git ls-files -z | while read -d '' path; do touch -d "$(git log -1 --format="@%ct" "$path")" "$path"; done
-      - name: Install Node Dependencies
-        run: npm install
-      - name: Install Pandoc
-        run: |
-          wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
-          sudo dpkg -i pandoc.deb
-      - name: Prepare Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
-      - name: Build
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --token=$VERCEL_TOKEN build --prod --yes
-      - name: Deploy to Vercel
-        id: vercel-push
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
-        if: github.event_name == 'push' && github.ref_name == 'main'
+          
       - name: Create GitHub deployment
         uses: chrnorm/deployment-action@v2
         id: deployment
@@ -62,3 +26,65 @@ jobs:
           environment-url: https://blog.6leo6.com
           environment: production
         if: github.event_name == 'push' && github.ref_name == 'main'
+        
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+            
+      - name: Fix File Modify Time
+        run: git ls-files -z | while read -d '' path; do touch -d "$(git log -1 --format="@%ct" "$path")" "$path"; done
+        
+      - name: Install Node Dependencies
+        run: npm install
+        
+      - name: Install Pandoc
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
+          sudo dpkg -i pandoc.deb
+          
+      - name: Prepare Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
+          
+      - name: Build
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel --token=$VERCEL_TOKEN build --prod --yes
+        
+      - name: Deploy to Vercel
+        id: vercel-push
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
+        if: github.event_name == 'push' && github.ref_name == 'main'
+        
+      - name: Update deployment status (success)
+        if: success() && github.event_name == 'push' && github.ref_name == 'main'
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: ${{ steps.deployment.outputs.environment_url }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: 'success'
+
+      - name: Update deployment status (failure)
+        if: failure() && github.event_name == 'push' && github.ref_name == 'main'
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: ${{ steps.deployment.outputs.environment_url }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: 'failure'
+      
