@@ -113,6 +113,10 @@ pandoc:
   extra:
     - "wrap=none":
 
+highlight:
+  enable: false
+
+
 feed:
   enable: true
   type: atom
