@@ -419,17 +419,17 @@ sidebar:
 
 plugins:
   # 代码高亮
-  code_highlight: highlightjs # highlightjs or prismjs
-  # highlight.js
-  highlightjs:
-    language: true
+  code_highlight: prismjs # highlightjs or prismjs
+  prismjs:
     copy_code: true
-    # 如果开启以下配置, hexo.config.highlight.enable 需要设置为 false ; hexo.config.highlight.enable 设置为 true, 则以下配置无效
-    # # 不再支持 v11.1.0 以下版本
-    js: https://jsd.cdn.zzko.cn/npm/@highlightjs/cdn-assets@11.7.0/highlight.min.js
-    # Please set hexo.config.highlight.enable = false !!!
-    css: https://jsd.cdn.zzko.cn/npm/@highlightjs/cdn-assets@11.7.0/styles/github-dark-dimmed.min.css
-    # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
+    # Please set hexo.config.highlight.enable = false !!! set hexo.config.prismjs.enable = true !!!
+    js:
+      - https://jsd.cdn.zzko.cn/npm/prismjs/components/prism-core.min.js
+      - https://jsd.cdn.zzko.cn/npm/prismjs/plugins/autoloader/prism-autoloader.min.js
+      - https://jsd.cdn.zzko.cn/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js
+    css:
+      - https://jsd.cdn.zzko.cn/npm/prismjs/themes/prism-dark.css
+      - https://jsd.cdn.zzko.cn/npm/prismjs/plugins/line-numbers/prism-line-numbers.css
   darkmode:
     enable: true
     
