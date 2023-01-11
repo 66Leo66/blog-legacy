@@ -1,7 +1,7 @@
 name: Build Blog
 on:
-  - workflow_call:
-  - workflow_dispatch:
+  workflow_call:
+  workflow_dispatch:
 
 jobs:
   hexo-generate:
