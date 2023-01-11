@@ -476,6 +476,7 @@ custom_css:
       
 color_scheme:
   dark:
+    card: '#212121'
     block: '#262626'
       
 # dns-prefetch preconnect x-dns-prefetch-control
