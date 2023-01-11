@@ -15,7 +15,7 @@ jobs:
       deployments: write
     environment:
       name: production
-      url: ${{ steps.vercel-push.outputs.URL }}
+      url: ${{ steps.deploy-vercel.outputs.preview-url }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -46,26 +46,19 @@ jobs:
           wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
           sudo dpkg -i pandoc.deb
           
-      - name: Prepare Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
-          
       - name: Build
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --token=$VERCEL_TOKEN build --prod --yes
+        run: npm run build
         
       - name: Deploy to Vercel
-        id: vercel-push
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
-          echo "URL=`cat deployment-url.txt`" >> $GITHUB_OUTPUT
-        
+        id: deploy-vercel
+        uses: amondnet/vercel-action@v20 #deploy
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+          vercel-args: '--prod' #Optional
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required 
+
       
   hexo-build-preview:
     if: github.event_name == 'push' && github.ref_name != 'main'
@@ -74,7 +67,7 @@ jobs:
       deployments: write
     environment:
       name: preview
-      url: ${{ steps.vercel-push.outputs.URL }}
+      url: ${{ steps.deploy-vercel.outputs.preview-url }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -104,23 +97,16 @@ jobs:
         run: |
           wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
           sudo dpkg -i pandoc.deb
-          
-      - name: Prepare Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
-          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=preview
-          
+
       - name: Build
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --token=$VERCEL_TOKEN build --yes
+        run: npm run build
         
       - name: Deploy to Vercel
-        id: vercel-push
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes > deployment-url.txt
-          echo "URL=`cat deployment-url.txt`" >> $GITHUB_OUTPUT
+        id: deploy-vercel
+        uses: amondnet/vercel-action@v20 #deploy
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+          vercel-args:  #Optional
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required 
