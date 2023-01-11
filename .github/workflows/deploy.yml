@@ -76,7 +76,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.vercel-push.outputs.URL }}
+          environment-url: https://blog.6leo6.com
           deployment-id: ${{ github.event.deployment.id }}
           state: 'success'
 
@@ -85,7 +85,6 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.vercel-push.outputs.URL }}
           deployment-id: ${{ github.event.deployment.id }}
           state: 'failure'
       
@@ -167,6 +166,5 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.vercel-push.outputs.URL }}
           deployment-id: ${{ github.event.deployment.id }}
           state: 'failure'
