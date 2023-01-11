@@ -2,20 +2,21 @@
     const updateDarkmodeButtonLabel = () => {
         if (volantis.dark.mode == "dark") {
             document.querySelectorAll('.toggle-mode-btn').forEach((ctx) => {
-                ctx.innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
+                volantis.requestAnimationFrame(() => {
+                    ctx.innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
+                })
             });
         } else {
             document.querySelectorAll('.toggle-mode-btn').forEach((ctx) => {
-                ctx.innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
+                volantis.requestAnimationFrame(() => {
+                    ctx.innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
+                })
             });
         }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        volantis.requestAnimationFrame(() => {
-            updateDarkmodeButtonLabel();
-        })
-
+        updateDarkmodeButtonLabel();
         volantis.dark.push(() => {
             updateDarkmodeButtonLabel();
         })
