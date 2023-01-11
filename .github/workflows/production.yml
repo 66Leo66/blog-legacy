@@ -8,9 +8,6 @@ on:
   pull_request:
   
 jobs:
-  hexo-generate-blog:
-    uses: ./.github/workflows/build.yml
-
   hexo-build-deploy:
     if: github.event_name == 'push' && github.ref_name == 'main'
     runs-on: ubuntu-latest
@@ -26,6 +23,9 @@ jobs:
           fetch-depth: '0'
           submodules: 'true'
         
+      - name: Generate
+        uses: 66Leo66/build-my-blog
+
       - name: test
         run: ls
       # - name: Deploy to Vercel
