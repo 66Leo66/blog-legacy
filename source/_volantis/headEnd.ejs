@@ -1,3 +1,7 @@
 <%# Highlight.js line number %>
 <script src="//jsd.cdn.zzko.cn/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-<script> hljs.initLineNumbersOnLoad(); </script>
+<script>
+document.addEventListener('ready', () => {
+  hljs.initLineNumbersOnLoad();
+}, { once: true });
+</script>
