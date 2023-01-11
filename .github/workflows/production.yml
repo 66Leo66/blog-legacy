@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy
         id: deploy
-        uses: 66Leo66/push-to-vercel@v2
+        uses: 66Leo66/push-to-vercel@v2-fix
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-projectId: ${{ secrets.VERCEL_PROJECTID }}
