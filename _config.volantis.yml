@@ -8,7 +8,7 @@ pages:
 
 ############################### Cover ############################### > start
 cover:
-  height_scheme: half # full, half
+  height_scheme: full # full, half
   layout_scheme: dock # blank (留白), search (搜索), dock (坞), featured (精选), focus (焦点)
   display:
     home: true
@@ -139,7 +139,7 @@ article:
       # ----------------
       # 版权声明组件 (for layout: post)
       copyright:
-        enable: false
+        enable: true
         permalink: '本文永久链接是：'
         content:
           - '博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议'
@@ -214,10 +214,6 @@ article:
       walinecount:
         icon: fa-solid fa-comment-dots
         desc: '条评论' # 条评论
-      # artalk 文章评论数量
-      artalkcount:
-        icon: fa-solid fa-comment-dots
-        desc: '条评论' # 条评论
       # 文章字数和阅读时长
       wordcount:
         icon_wordcount: fa-solid fa-keyboard
@@ -231,8 +227,6 @@ article:
           img: volantis-static/media/org.volantis/logo/128/qq.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png
         - id: qzone
           img: volantis-static/media/org.volantis/logo/128/qzone.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png
-        # - id: weibo
-        #   img: volantis-static/media/org.volantis/logo/128/weibo.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png
         - id: qrcode # 当id为qrcode时需要安装插件  npm i hexo-helper-qrcode
           img: volantis-static/media/org.volantis/logo/128/wechat.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png
         - id: telegram
@@ -352,7 +346,7 @@ sidebar:
       header:
         icon: fa-solid fa-folder-open
         title: 文章分类
-        url: /blog/categories/
+        url: /categories/
     # ---------------------------------------
     # tagcloud widget
     tagcloud:
@@ -361,7 +355,7 @@ sidebar:
       header:
         icon: fa-solid fa-tags
         title: 热门标签
-        url: /blog/tags/
+        url: /tags/
       min_font: 14
       max_font: 24
       color: true
@@ -390,7 +384,7 @@ sidebar:
           text: '文章数目：'
           unit: '篇'
         runtime:
-          enable: false
+          enable: true
           data: '2023/01/07'    # 填写建站日期
           text: '已运行时间：'
           unit: '天'
