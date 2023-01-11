@@ -428,7 +428,7 @@ plugins:
     # # 不再支持 v11.1.0 以下版本
     js: https://jsd.cdn.zzko.cn/npm/@highlightjs/cdn-assets@11.7.0/highlight.min.js
     # Please set hexo.config.highlight.enable = false !!!
-    css: https://jsd.cdn.zzko.cn/npm/@highlightjs/cdn-assets@11.7.0/styles/atom-one-dark-reasonable.min.css
+    css: https://jsd.cdn.zzko.cn/npm/@highlightjs/cdn-assets@11.7.0/styles/github-dark-dimmed.min.css
     # # # more: https://www.jsdelivr.com/package/npm/@highlightjs/cdn-assets?path=styles
   darkmode:
     enable: true
