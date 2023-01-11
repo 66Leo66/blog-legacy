@@ -58,7 +58,7 @@ jobs:
         uses: chrnorm/deployment-action@v2
         id: deployment
         with:
-          token: '${{ secrets.secrets.GITHUB_TOKEN }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://blog.6leo6.com
           environment: production
         if: github.event_name == 'push' && github.ref_name == 'main'
