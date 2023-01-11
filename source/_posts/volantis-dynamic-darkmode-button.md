@@ -8,6 +8,8 @@ tags:
   - Volantis
   - Javascript
   - 技术
+plugins:
+  - snackbar: incomplete
 ---
 
 在这篇文章中，我将介绍如何让切换深色/浅色模式的按钮的提示文字随颜色模式而变化。
