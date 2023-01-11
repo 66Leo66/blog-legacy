@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 最后，我们要通过适当的方式将这段代码注入到页面中。我选用的方法是利用 `theme_inject`工具。
 {% folding::把文件给我 %}
+
 ```javascript
 // 此文件需要放在 blog/scripts 或 volantis/scripts 目录
 // 此文件可以任意命名
@@ -127,4 +128,5 @@ hexo.extend.filter.register('theme_inject', function (injects) {
   }, { once: true });
 </script>
 ```
+
 {% endfolding %}
