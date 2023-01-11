@@ -15,7 +15,7 @@ jobs:
       deployments: write
     environment:
       name: production
-      url: ${{ steps.deploy-vercel.outputs.preview-url }}
+      url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout
@@ -26,11 +26,12 @@ jobs:
       - name: Generate
         uses: 66Leo66/build-my-blog@v2
 
-      - name: test
-        run: ls
-      # - name: Deploy to Vercel
-      #   env:
-      #     VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      #   run: |
-      #     echo "{\"version\": 3}" > .vercel/output/config.json
-      #     npx vercel deploy --prebuilt --prod > url.txt
+      - name: Deploy
+        id: deploy
+        uses: 66Leo66/push-to-vercel@v1
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-projectId: ${{ secrets.VERCEL_PROJECTID }}
+          vercel-orgId: ${{ secrets.VERCEL_ORGID }}
+          production: true
+          vercel-region: 'hkg1'

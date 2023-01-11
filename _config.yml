@@ -25,8 +25,8 @@ pretty_urls:
 
 # Directory
 source_dir: source
-# public_dir: public
-public_dir: .vercel/output/static
+public_dir: public
+# public_dir: .vercel/output/static
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
