@@ -92,39 +92,3 @@ document.addEventListener('DOMContentLoaded', () => {
 {% endfolding %}
 
 最后，我们要通过适当的方式将这段代码注入到页面中。我选用的方法是利用 `theme_inject`工具。
-{% folding::把文件给我 %}
-```javascript scripts/inject.js
-// 此文件需要放在 blog/scripts 或 volantis/scripts 目录
-// 此文件可以任意命名
-hexo.extend.filter.register('theme_inject', function (injects) {
-    injects.headEnd.file('darkmode-button-script', 'source/_data/darkmode-button.ejs');
-});
-```
-
-```html source/_data/darkmode-button.ejs
-<%# 此文件的位置要符合上方 inject 方法的参数 %>
-<script>
-  const updateDarkmodeButtonLabel = () => {
-    if (volantis.dark.mode == "dark") {
-      // $(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
-      document.getElementsByClassName("toggle-mode-btn")[0].innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
-      document.getElementsByClassName("toggle-mode-btn")[1].innerHTML = "<i class=\"fas fa-sun fa-fw\"></i>浅色模式";
-    } else {
-      // $(".toggle-mode-btn").innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
-      document.getElementsByClassName("toggle-mode-btn")[0].innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
-      document.getElementsByClassName("toggle-mode-btn")[1].innerHTML = "<i class=\"fas fa-moon fa-fw\"></i>深色模式";
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    updateDarkmodeButtonLabel();
-    // volantis.pjax.push(() => {
-    //   updateDarkmodeButtonLabel();
-    // })
-    volantis.dark.push(() => {
-      updateDarkmodeButtonLabel();
-    })
-  }, { once: true });
-</script>
-```
-{% endfolding %}
