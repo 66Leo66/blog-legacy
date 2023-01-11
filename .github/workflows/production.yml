@@ -9,7 +9,7 @@ on:
   
 jobs:
   hexo-build-deploy:
-    if: github.event_name == 'push' && github.ref_name == 'main'
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     permissions:
       deployments: write
