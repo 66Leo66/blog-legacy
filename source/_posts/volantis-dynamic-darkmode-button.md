@@ -17,7 +17,7 @@ tags:
 ## 关于暗黑模式
 在主题 Volantis 中，暗黑模式通过以下方式来启动：
 
-```yaml _config.volantis.yaml
+```yaml
 # 启用 darkmode 插件
 plugins:
   darkmode:
