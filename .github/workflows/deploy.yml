@@ -12,6 +12,8 @@ jobs:
     outputs:
       output1: ${{ steps.output.outputs.url }}
     runs-on: ubuntu-latest
+    permissions:
+      deployments: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -47,7 +49,16 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: npx vercel --token=$VERCEL_TOKEN build --prod --yes
       - name: Deploy to Vercel
+        id: vercel-push
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
+        if: github.event_name == 'push' && github.ref_name == 'main'
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: '${{ secrets.secrets.GITHUB_TOKEN }}'
+          environment-url: https://blog.6leo6.com
+          environment: production
         if: github.event_name == 'push' && github.ref_name == 'main'
