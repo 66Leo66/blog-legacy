@@ -3,8 +3,8 @@ incomplete:
   message: '这篇文章目前暂未完成。这可能是由于发现了问题、正在重构或其他原因。<br>请慎重对待文中的信息。'
   position: bottom # bottom (底部通知), right (右侧通知，会自动消失)
   theme: warning # default, warning
-  cache: true # 是否记住选项（下次不再弹出）
+  cache: false # 是否记住选项（下次不再弹出）
   buttons:
-    - title: 不再提醒
+    - title: 好
       url: ''
       dismiss: true # 点击了是否关闭底部横幅
