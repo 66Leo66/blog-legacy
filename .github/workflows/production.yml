@@ -24,7 +24,7 @@ jobs:
           submodules: 'true'
         
       - name: Generate
-        uses: 66Leo66/build-my-blog
+        uses: 66Leo66/build-my-blog@v1
 
       - name: test
         run: ls
