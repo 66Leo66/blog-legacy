@@ -46,6 +46,13 @@ jobs:
           wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
           sudo dpkg -i pandoc.deb
           
+      - name: Prepare Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=production
+          
       - name: Build
         run: npm run build
         
@@ -97,7 +104,14 @@ jobs:
         run: |
           wget https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb -O pandoc.deb
           sudo dpkg -i pandoc.deb
-
+          
+      - name: Prepare Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npx vercel --token=$VERCEL_TOKEN link --yes --project=my-blog
+          npx vercel --token=$VERCEL_TOKEN pull --yes --environment=preview
+          
       - name: Build
         run: npm run build
         
