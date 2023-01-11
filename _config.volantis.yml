@@ -468,10 +468,10 @@ custom_css:
   fontsize:
     code: .875rem
       
-color_scheme:
-  dark:
-    card: '#212121'
-    block: '#262626'
+# color_scheme:
+#   dark:
+#     card: '#212121'
+#     block: '#262626'
       
 # dns-prefetch preconnect x-dns-prefetch-control
 dns_prefetch:
