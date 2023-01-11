@@ -13,20 +13,20 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       deployments: write
-    environment: deployment
+    environment: production
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
           submodules: 'true'
           
-      - name: Create GitHub deployment
-        uses: chrnorm/deployment-action@v2
-        id: deployment
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://blog.6leo6.com
-          environment: production
+      # - name: Create GitHub deployment
+      #   uses: chrnorm/deployment-action@v2
+      #   id: deployment
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     environment-url: https://blog.6leo6.com
+      #     environment: production
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -67,15 +67,17 @@ jobs:
         id: vercel-push
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
+        run: |
+          npx vercel --token=$VERCEL_TOKEN deploy --prebuilt --yes --prod > deployment-url.txt
+          echo "URL=`cat deployment-url.txt`" >> $GITHUB_OUTPUT
         
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.deployment.outputs.environment_url }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          environment-url: ${{ steps.vercel-push.outputs.URL }}
+          deployment-id: ${{ github.event.deployment.id }}
           state: 'success'
 
       - name: Update deployment status (failure)
@@ -83,8 +85,8 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.deployment.outputs.environment_url }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          environment-url: ${{ steps.vercel-push.outputs.URL }}
+          deployment-id: ${{ github.event.deployment.id }}
           state: 'failure'
       
   hexo-build-preview:
@@ -99,13 +101,13 @@ jobs:
           fetch-depth: '0'
           submodules: 'true'
           
-      - name: Create GitHub deployment
-        uses: chrnorm/deployment-action@v2
-        id: deployment
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # environment-url: https://blog.6leo6.com
-          environment: preview
+      # - name: Create GitHub deployment
+      #   uses: chrnorm/deployment-action@v2
+      #   id: deployment
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     # environment-url: https://blog.6leo6.com
+      #     environment: preview
 
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
@@ -157,7 +159,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: ${{ steps.vercel-push.outputs.URL }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          deployment-id: ${{ github.event.deployment.id }}
           state: 'success'
 
       - name: Update deployment status (failure)
@@ -166,5 +168,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: ${{ steps.vercel-push.outputs.URL }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          deployment-id: ${{ github.event.deployment.id }}
           state: 'failure'
