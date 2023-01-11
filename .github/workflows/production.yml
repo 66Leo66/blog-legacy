@@ -22,7 +22,12 @@ jobs:
         with:
           fetch-depth: '0'
           submodules: 'true'
-        
+      
+      - name: Correct Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: "Asia/Shanghai"
+      
       - name: Generate
         uses: 66Leo66/build-my-blog@v2
 
