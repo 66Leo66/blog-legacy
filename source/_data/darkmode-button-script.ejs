@@ -11,11 +11,11 @@
         }
     }
 
-    volantis.requestAnimationFrame(() => {
-        updateDarkmodeButtonLabel();
-    })
-
     document.addEventListener('DOMContentLoaded', () => {
+        volantis.requestAnimationFrame(() => {
+            updateDarkmodeButtonLabel();
+        })
+
         volantis.dark.push(() => {
             updateDarkmodeButtonLabel();
         })
