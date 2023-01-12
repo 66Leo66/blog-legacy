@@ -10,7 +10,7 @@ tags:
 
 <!-- more -->
 
-```shell
+```bash
 echo This is line one
 cat << EOF
 These are more lines
@@ -18,7 +18,7 @@ EOF
 ```
 
 {% folding 折叠的代码块 %}
-```shell
+```bash
 echo This is line one
 cat << EOF
 These are more lines
