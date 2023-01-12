@@ -2,18 +2,19 @@ name: Production Deploy
 
 on:
   push:
-    branches:
+    branches-ignore:
       - main
   workflow_dispatch:
+  pull_request:
   
 jobs:
-  hexo-build-deploy:
-    if: github.ref_name == 'main'
+  hexo-build-preview:
+    if: github.ref_name != 'main'
     runs-on: ubuntu-latest
     permissions:
       deployments: write
     environment:
-      name: production
+      name: preview
       url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
       - uses: actions/checkout@v3
@@ -37,5 +38,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-projectId: ${{ secrets.VERCEL_PROJECTID }}
           vercel-orgId: ${{ secrets.VERCEL_ORGID }}
-          production: true
+          production: false
           vercel-region: 'hkg1'
