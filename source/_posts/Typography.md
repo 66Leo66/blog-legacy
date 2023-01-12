@@ -10,9 +10,18 @@ tags:
 
 <!-- more -->
 
-# L1 Heading
-## L2 Heading
-### L3 Heading
-#### L4 Heading
-##### L5 Heading
-###### L6 Heading
+```shell
+echo This is line one
+cat << EOF
+These are more lines
+EOF
+```
+
+{% folding 折叠的代码块 %}
+```shell
+echo This is line one
+cat << EOF
+These are more lines
+EOF
+```
+{% endfolding %}
