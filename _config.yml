@@ -110,7 +110,6 @@ pandoc:
   extensions:
     - "+hard_line_breaks"
     - "+emoji"
-    - "-raw_html"
   extra:
     - "wrap=none":
 
