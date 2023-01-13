@@ -443,6 +443,7 @@ comments:
     imageUploader:
       api: https://www.imgtp.com/api/upload
       token: 
+      fileName: image
       resp: data.url
     emoji:
       - https://jsd.cdn.zzko.cn/gh/walinejs/emojis@1.1.0/qq
