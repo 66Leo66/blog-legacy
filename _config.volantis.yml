@@ -18,7 +18,7 @@ cover:
   # background: https://bing.ioliu.cn/v1/rand?w=1920&h=1200
   logo: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-Cover@3x.png
   title: "66Leo66's Blog"
-  subtitle: '深圳実験の最強伝説の低品質プログラムコードメーカー'
+  subtitle: "深圳実験の最強伝説の低品質プログラムコードメーカー"
   search: A Wonderful Theme for Hexo # search bar placeholder
   features:
     - name: 文章
@@ -28,7 +28,7 @@ cover:
     - name: 源码
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f517.svg #  https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg
-      url: https://git.6leo6.com/66Leo66/blog
+      url: https://github.com/66Leo66/blog.6leo6.com
     - name: 关于
       icon: #
       img: volantis-static/media/twemoji/assets/svg/1f34a.svg
