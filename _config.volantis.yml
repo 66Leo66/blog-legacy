@@ -416,7 +416,6 @@ sidebar:
 ############################### Sidebar ############################### > end
 
 
-
 plugins:
   # 代码高亮
   code_highlight: highlightjs # highlightjs or prismjs
