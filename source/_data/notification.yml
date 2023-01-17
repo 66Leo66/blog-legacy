@@ -8,3 +8,14 @@ incomplete:
     - title: 好
       url: ''
       dismiss: true # 点击了是否关闭底部横幅
+
+incomplete-lazy:
+  title: 文章未完成
+  message: '这篇文章目前暂未完成。这是由于作者太懒了。<br>建议退出本页面直到这篇文章有朝一日被完成。'
+  position: bottom # bottom (底部通知), right (右侧通知，会自动消失)
+  theme: warning # default, warning
+  cache: false # 是否记住选项（下次不再弹出）
+  buttons:
+    - title: 好
+      url: ''
+      dismiss: true # 点击了是否关闭底部横幅
