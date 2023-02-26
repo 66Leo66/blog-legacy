@@ -1,5 +1,7 @@
 # blog
 
-Personal blog, powered by hexo.
+## this is no longer used
 
-[Click here](https://blog.6leo6.com) to open the blog page.
+~~Personal blog, powered by hexo.~~
+
+~~[Click here](https://blog.6leo6.com) to open the blog page.~~
